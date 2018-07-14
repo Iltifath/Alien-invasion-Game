@@ -7,27 +7,27 @@ import game_functions as gf
 from pygame.sprite import Group
 
 def run_game():
-    # Initialize game and create a screen obbject.
+    #This will initialize game and create a screen obbject.
     pygame.init()
     ai_settings = Settings()
     screen = pygame.display.set_mode((ai_settings.screen_width, ai_settings.screen_height))
     pygame.display.set_caption("Alien invasion")
 
-    #Make the Play button
+    #This will make play button on the screen.
     play_button = Button(ai_settings, screen, "Play")
 
-    # Create an instance to store game statistics.
+    #This will create an instance to store game statistics.
     stats = GameStats(ai_settings)
     ship = Ship(ai_settings, screen)
 
-    # Make a group to store bullets in.
+    #To make a group to store bullets in.
     bullets = Group()
     aliens = Group()
 
-    #Create the fleet of aliens.
+    #This will create the fleet of aliens.
     gf.create_fleet(ai_settings, screen, ship, aliens)
     
-    #Start the main loop for the game.
+    #main loop for the game.
     while True:
 
         gf.check_events(ai_settings, screen, stats, play_button, ship, aliens, bullets)
